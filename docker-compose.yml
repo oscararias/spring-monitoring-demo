@@ -1,0 +1,41 @@
+version: "3.9"
+
+services:
+  prometheus:
+    image: prom/prometheus:latest
+    ports:
+      - 9600:9090
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+#
+#  prometheus-pushgateway:
+#    image: prom/pushgateway:latest
+#    ports:
+#      - 9605:9091
+
+  app1:
+    image: spring-monitoring-demo:0.0.1-SNAPSHOT
+    ports:
+      - 9601:8080
+
+#  app2:
+#    image: node:18
+#    command: npm start
+#    working_dir: /app
+#    environment:
+#      ID: "two"
+#    volumes:
+#      - .:/app
+#    ports:
+#      - 9602:3000
+#
+#  app3:
+#    image: node:18
+#    command: npm start
+#    working_dir: /app
+#    environment:
+#      ID: "three"
+#    volumes:
+#      - .:/app
+#    ports:
+#      - 9603:3000

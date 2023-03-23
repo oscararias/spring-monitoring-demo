@@ -1,0 +1,23 @@
+global:
+  scrape_interval: 2s
+  scrape_timeout: 2s
+
+scrape_configs:
+  - job_name: 'sample'
+    metrics_path: "/actuator/prometheus"
+    static_configs:
+      - targets: ['app1:8080']
+        labels:
+          group: 'prod'
+#      - targets: ['app1:8080', 'app2:8080']
+#        labels:
+#          group: 'prod'
+
+#      - targets: ['app3:8080']
+#        labels:
+#          group: 'dev'
+
+#  - job_name: 'gateway'
+#    scrape_interval: 2s
+#    static_configs:
+#      - targets: ['prometheus-pushgateway:9091']
